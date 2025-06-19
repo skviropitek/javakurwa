@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="core.basesyntax.ui.controllers.MainController">
+
+    <top>
+        <ToolBar>
+            <Button text="Загрузить CSV"   onAction="#onLoadCsv"/>
+            <Button text="Сохранить отчёт" onAction="#onSaveReport"/>
+            <Separator orientation="VERTICAL"/>
+
+            <Label text="Операция:"/>
+            <ComboBox fx:id="cmbOperation" prefWidth="120"/>
+
+            <Label text="Фрукт:"/>
+            <TextField fx:id="txtFruit" prefWidth="100"/>
+
+            <Label text="Кол-во:"/>
+            <Spinner fx:id="spnQuantity" prefWidth="80"/>
+
+            <Button text="Выполнить" onAction="#onApplyOperation"/>
+            <Separator orientation="VERTICAL"/>
+
+            <Button text="Показать баланс" onAction="#onCheckBalance"/>
+        </ToolBar>
+    </top>
+
+    <center>
+        <TableView fx:id="transactionTable">
+            <columns>
+                <TableColumn fx:id="colOperation" text="Операция"   prefWidth="100"/>
+                <TableColumn fx:id="colFruit"     text="Фрукт"       prefWidth="150"/>
+                <TableColumn fx:id="colQty"       text="Количество"  prefWidth="100"/>
+                <TableColumn fx:id="colDate"      text="Дата/время"  prefWidth="150"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <Label fx:id="statusBar"
+               text="Готово"/>
+    </bottom>
+</BorderPane>
